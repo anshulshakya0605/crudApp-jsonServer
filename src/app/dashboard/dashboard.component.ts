@@ -7,11 +7,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatDialog} from '@angular/material/dialog';
 import { EmpAddEditComponent } from '../emp-add-edit/emp-add-edit.component';
 import { CommonModule } from '@angular/common';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule],
+  imports: [CommonModule, RouterOutlet,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,
+    MatFormFieldModule,],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
