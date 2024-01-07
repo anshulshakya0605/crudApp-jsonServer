@@ -4,18 +4,18 @@
             <h1>Empolyee Form</h1>
         </div>
     </div>
-
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
     <div class="row">
         <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
-                <input matInput type="text" placeholder="Ex. Technical">
+                <input matInput type="text" placeholder="Ex. Technical" formControlName="firstName">
             </mat-form-field>
         </div>
         <div class="col-md-5">
             <mat-form-field appearance="outline">
                 <mat-label>Last Name</mat-label>
-                <input matInput type="text" placeholder="Ex. Shakya">
+                <input matInput type="text" placeholder="Ex. Shakya" formControlName="lastName">
             </mat-form-field>
         </div>
     </div>
@@ -24,19 +24,19 @@
         <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>Email Id</mat-label>
-                <input matInput type="text" placeholder="Ex. Technical@gmail.com">
+                <input matInput type="text" placeholder="Ex. Technical@gmail.com" formControlName="email" required>
             </mat-form-field>
         </div>
         <div class="col-md-5">
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" placeholder="Ex. 987*****">
+                <input matInput type="password" placeholder="Ex. 987*****" formControlName="password" required>
             </mat-form-field>
         </div>
     </div>
 
     <div class="row">
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
             <mat-label><b>Gender</b></mat-label>
             <mat-radio-button value="male">Male</mat-radio-button>
             <mat-radio-button value="female">Female </mat-radio-button>
@@ -46,7 +46,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <select class="form-select py-3" aria-label="Default select example">
+            <select class="form-select py-3" aria-label="Default select example" formControlName="education">
                 <option selected>Education</option>
                 <option value="Matric">Matric</option>
                 <option value="Diploma">Diploma</option>
@@ -58,7 +58,7 @@
         <div class="col-md-5">
             <mat-form-field appearance="outline">
                 <mat-label>Company</mat-label>
-                <input matInput type="text" placeholder="Ex. Google">
+                <input matInput type="text" placeholder="Ex. Google" formControlName="company">
             </mat-form-field>
         </div>
     </div>
@@ -67,14 +67,14 @@
         <div class="col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>Experience</mat-label>
-                <input matInput type="text" placeholder="Ex. 4" type="number">
+                <input matInput type="text" placeholder="Ex. 4" type="number" formControlName="experiences">
             </mat-form-field>
         </div>
 
         <div class="col-md-5">
             <mat-form-field appearance="outline">
                 <mat-label>Package</mat-label>
-                <input matInput type="text" placeholder="Ex. 12" type="number">
+                <input matInput type="text" placeholder="Ex. 12" type="number" formControlName="package">
                 <mat-hint>In Rupees</mat-hint>
             </mat-form-field>
         </div>
@@ -82,6 +82,8 @@
 
     <div class="text-center mt-2 action">
         <button type="button" class="btn btn-secondary me-3">Cancel</button>
-        <button type="button" class="btn btn-success ms-3"> Save </button>
+        <button type="submit" class="btn btn-success ms-3"> Save </button>
     </div>
+</form>
+    
 </div>

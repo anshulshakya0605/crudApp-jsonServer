@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "emplyee": [
+    {
+      "firstName": "jaj",
+      "lastName": "ajjj",
+      "email": "jj",
+      "password": "kjdfk",
+      "gender": "male",
+      "education": "",
+      "company": "",
+      "experiences": "",
+      "package": "",
+      "id": 1
+    },
+    {
+      "firstName": "Anshul",
+      "lastName": "Shakya",
+      "email": "anshulshsh@gmail.com",
+      "password": "Shakdjj8765@",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "Prosix",
+      "experiences": "2",
+      "package": "30",
+      "id": 2
+    },
+    {
+      "firstName": "Raman ",
+      "lastName": "Shakya",
+      "email": "ranagjah@gmail.com",
+      "password": "jakjlak88",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "s2i",
+      "experiences": "2",
+      "package": "33",
+      "id": 3
+    },
+    {
+      "firstName": "Sgdhdg",
+      "lastName": "jshddj",
+      "email": "kahaj",
+      "password": "hjahdjakj",
+      "gender": "male",
+      "education": "Intermediate",
+      "company": "jca",
+      "experiences": "7",
+      "package": "87",
+      "id": 4
+    },
+    {
+      "firstName": "jsjs",
+      "lastName": "",
+      "email": "jhsduh",
+      "password": "dsi",
+      "gender": "",
+      "education": "",
+      "company": "",
+      "experiences": "",
+      "package": "",
+      "id": 5
+    },
+    {
+      "firstName": "djgklsdjg",
+      "lastName": "ldvkldsv",
+      "email": "nvjlsdnvklsd",
+      "password": "nlksdnvkld",
+      "gender": "female",
+      "education": "Intermediate",
+      "company": "j;vjdsk;lv",
+      "experiences": "4",
+      "package": "6",
+      "id": 6
+    },
+    {
+      "firstName": "cdcfsadfdsf",
+      "lastName": "",
+      "email": "csfdfsd",
+      "password": "dsfdsfsd",
+      "gender": "",
+      "education": "",
+      "company": "",
+      "experiences": "",
+      "package": "",
+      "id": 7
+    }
+  ]
+}
