@@ -16,7 +16,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreService } from '../core/core.service';
 import { DateAdapter } from '@angular/material/core';
 
@@ -25,7 +25,7 @@ import { DateAdapter } from '@angular/material/core';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule,
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule,
     MatFormFieldModule, MatInputModule, MatSnackBarModule, HttpClientModule, MatTableModule, MatPaginatorModule, MatSortModule,],
   providers: [SendDataService,],
   templateUrl: './dashboard.component.html',
@@ -47,14 +47,14 @@ export class DashboardComponent implements OnInit {
   }
 
   openAddEditEmpForm() {
-   const dialogRef = this.dialog.open(EmpAddEditComponent);
-   dialogRef.afterClosed().subscribe({
-    next: (val) => {
-      if(val) {
-        this.getEmployeeList();
+    const dialogRef = this.dialog.open(EmpAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getEmployeeList();
+        }
       }
-    }
-   })
+    })
   }
   getEmployeeList() {
     this.empService.getEmployeeList().subscribe({
@@ -83,7 +83,6 @@ export class DashboardComponent implements OnInit {
   deleteEmpolyee(id: number) {
     this.empService.deleteEmpolyee(id).subscribe({
       next: (res) => {
-        alert('Are You Sure')
         this.coreService.openSnackBar('Employee deleted!', 'done');
         this.getEmployeeList();
       },
@@ -91,15 +90,15 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  openEditForm( data: any) {
-  const dialogRef = this.dialog.open(EmpAddEditComponent, {
-    data,
-   });
-   dialogRef.afterClosed().subscribe({
-    next:(val) =>{
-      this.getEmployeeList();
-    }
-   })
-   }
+  openEditForm(data: any) {
+    const dialogRef = this.dialog.open(EmpAddEditComponent, {
+      data,
+    });
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        this.getEmployeeList();
+      }
+    })
+  }
 
 }

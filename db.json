@@ -40,18 +40,6 @@
       "experiences": "2",
       "package": "23",
       "id": 4
-    },
-    {
-      "firstName": "sushi",
-      "lastName": "jlkjlkjblkj",
-      "email": "lkjbkljKJLQKJL",
-      "password": "JKLJLKJFLK",
-      "gender": "male",
-      "education": "Diploma",
-      "company": "SKJGKL",
-      "experiences": "1",
-      "package": "10",
-      "id": 5
     }
   ]
 }

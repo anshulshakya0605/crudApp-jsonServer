@@ -95,4 +95,7 @@ email = new FormControl('', [Validators.required, Validators.email])
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+  cancelForm(){
+    this.dialogRef.close();
+  }
 };

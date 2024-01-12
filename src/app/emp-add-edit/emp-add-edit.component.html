@@ -31,19 +31,13 @@
                   }
                 </mat-form-field>
               </div>
-            <!-- <mat-form-field appearance="outline">
-                <mat-label>Email Id</mat-label>
-                <input matInput type="text" placeholder="Ex. Technical@gmail.com" formControlName="email" required>
-            </mat-form-field> -->
+            
         </div>
         <div class="col-md-5">
-            <mat-form-field>
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input matInput type="text" placeholder="Ex. Technical@gmail.com" formControlName="email" required>
+            </mat-form-field>
         </div>
     </div>
 
@@ -59,7 +53,7 @@
     <div class="row">
         <div class="col-md-6">
             <select class="form-select py-3" aria-label="Default select example" formControlName="education">
-                <option selected>Education</option>
+                <option value="select">Education</option>
                 <option value="Matric">Matric</option>
                 <option value="Diploma">Diploma</option>
                 <option value="Intermediate">Intermediate</option>
@@ -93,8 +87,8 @@
     </div>
 
     <div class="text-center mt-2 action">
-        <button type="button" class="btn btn-secondary me-3">Cancel</button>
-        <button type="submit" class="btn btn-success ms-3"> {{data? 'Update': 'Save'}} </button>
+        <button type="button" class="btn btn-secondary me-3" (click)="cancelForm()">Cancel</button>
+        <button type="submit" class="btn btn-success ms-3"> {{data ? 'Update': 'Save'}} </button>
     </div>
     
 </form>
