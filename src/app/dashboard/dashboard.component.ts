@@ -16,27 +16,30 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CoreService } from '../core/core.service';
+import { DateAdapter } from '@angular/material/core';
 
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule,
-    MatFormFieldModule, MatInputModule, HttpClientModule, MatTableModule, MatPaginatorModule, MatSortModule,],
-  providers: [SendDataService],
+  imports: [CommonModule, RouterOutlet,MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule,
+    MatFormFieldModule, MatInputModule, MatSnackBarModule, HttpClientModule, MatTableModule, MatPaginatorModule, MatSortModule,],
+  providers: [SendDataService,],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
   empolyeeList: any
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'password', 'gender', 'education', 'company', 'experiences', 'package'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'password', 'gender', 'education', 'company', 'experiences', 'package', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private empService: SendDataService) { }
+  constructor(private dialog: MatDialog, private empService: SendDataService, private coreService: CoreService) { }
 
 
   ngOnInit(): void {
@@ -44,7 +47,14 @@ export class DashboardComponent implements OnInit {
   }
 
   openAddEditEmpForm() {
-    this.dialog.open(EmpAddEditComponent);
+   const dialogRef = this.dialog.open(EmpAddEditComponent);
+   dialogRef.afterClosed().subscribe({
+    next: (val) => {
+      if(val) {
+        this.getEmployeeList();
+      }
+    }
+   })
   }
   getEmployeeList() {
     this.empService.getEmployeeList().subscribe({
@@ -69,4 +79,27 @@ export class DashboardComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  deleteEmpolyee(id: number) {
+    this.empService.deleteEmpolyee(id).subscribe({
+      next: (res) => {
+        alert('Are You Sure')
+        this.coreService.openSnackBar('Employee deleted!', 'done');
+        this.getEmployeeList();
+      },
+      error: console.log,
+    });
+  }
+
+  openEditForm( data: any) {
+  const dialogRef = this.dialog.open(EmpAddEditComponent, {
+    data,
+   });
+   dialogRef.afterClosed().subscribe({
+    next:(val) =>{
+      this.getEmployeeList();
+    }
+   })
+   }
+
 }

@@ -13,7 +13,15 @@ export class SendDataService {
     return this.httpclient.post('http://localhost:3000/emplyee', data);
   }
 
+  public updateEmployee(id: number, data: any){
+    return this.httpclient.put(`http://localhost:3000/emplyee/${id}`, data);
+  }
+
   getEmployeeList() {
     return this.httpclient.get('http://localhost:3000/emplyee');
+  }
+
+  deleteEmpolyee(id: number) {
+    return this.httpclient.delete(`http://localhost:3000/emplyee/${id}`)
   }
 }
