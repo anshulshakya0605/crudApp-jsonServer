@@ -25,10 +25,7 @@
             <div class="example-container">
                 <mat-form-field appearance="outline">
                   <mat-label>Email Id</mat-label>
-                  <input matInput placeholder="ramji@gmail.com" [formControl]="email" required>
-                  @if (email.invalid) {
-                    <mat-error>{{getErrorMessage()}}</mat-error>
-                  }
+                  <input matInput placeholder="ramji@gmail.com"  formControlName="email" required type="email">
                 </mat-form-field>
               </div>
             
